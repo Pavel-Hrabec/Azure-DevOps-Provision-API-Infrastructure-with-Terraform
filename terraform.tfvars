@@ -1,2 +1,2 @@
 location = "East US"
-resource_group_name = "Terraform-DevOps-Infrastructure"
+resource_group_name = "T-DevOps-Infrastructure"
