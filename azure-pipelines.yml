@@ -23,7 +23,7 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'DockerHubAzureDevOpsInfrastructureProvisioningTerraform'
-        repository: 'WeatherAPI'
+        repository: '465848451629697498456112665444/WeatherAPI'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: |
