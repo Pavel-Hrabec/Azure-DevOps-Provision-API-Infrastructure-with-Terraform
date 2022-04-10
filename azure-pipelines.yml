@@ -50,7 +50,8 @@ stages:
           TF_STATE_BLOB_ACCOUNT_NAME:   $(storage-account-name)
           TF_STATE_BLOB_CONTAINER_NAME: $(container-name)
           TF_STATE_BLOB_FILE:           $(TFstate-File-Name-Azure-DevOps-Infrastructure-Provisioning-with-Terraform)
-          TF_STATE_STORAGE_KEY:      $(euterraformstatefile-key-1)   
+          TF_STATE_STORAGE_KEY:      $(euterraformstatefile-key-1)
+          TF_VARimagebuild: $(tag)   
       - bash: terraform plan -out deployment.tfplan
         displayName: Terraform Plan 
         env:
@@ -58,6 +59,7 @@ stages:
           ARM_CLIENT_ID:       $(kv-arm-client-id)
           ARM_CLIENT_SECRET:   $(kv-arm-client-secret)
           ARM_TENANT_ID:       $(kv-arm-tenant-id)
+          TF_VARimagebuild: $(tag)
       - bash: terraform apply -auto-approve deployment.tfplan
         displayName: Terraform Apply
         env:
@@ -65,3 +67,4 @@ stages:
           ARM_CLIENT_ID:       $(kv-arm-client-id)
           ARM_CLIENT_SECRET:   $(kv-arm-client-secret)
           ARM_TENANT_ID:       $(kv-arm-tenant-id)
+          TF_VARimagebuild: $(tag)

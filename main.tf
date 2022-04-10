@@ -32,7 +32,7 @@ resource "azurerm_container_group" "Container-API" {
 
   container {
       name            = "weatherapi"
-      image           = "465848451629697498456112665444/weatherapi"
+      image           = "465848451629697498456112665444/weatherapi:${var.imagebuild}"
         cpu             = "1"
         memory          = "1"
 
